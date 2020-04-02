@@ -9,7 +9,7 @@ namespace BlogApp
 {
     class Program
     {
-        private static string _connectionString = @"Data Source=LENOVO\SQLEXPRESS;Initial Catalog=blog-system;Integrated Security=True;Connect Timeout=30;";
+        private static string _connectionString = @"Data Source=DEVSQL;Initial Catalog=blog-system;Pooling=true;Integrated Security=SSPI;MultiSubnetFailover=true";
 
         static void Main( string[] args )
         {
@@ -18,7 +18,10 @@ namespace BlogApp
             if ( command == "readpost" )
             {
                 List<Post> posts = ReadPosts();
-                Console.WriteLine( JsonSerializer.Serialize( posts ) );
+                foreach ( Post post in posts )
+                {
+                    Console.WriteLine( post.Title );
+                }                
             }
             else if ( command == "insert" )
             {
@@ -53,7 +56,7 @@ namespace BlogApp
                     {
                         while ( reader.Read() )
                         {
-                            var rawReservation = new Post
+                            var post = new Post
                             {
                                 PostId = Convert.ToInt32( reader[ "PostId" ] ),
                                 Title = Convert.ToString( reader[ "Title" ] ),
@@ -61,7 +64,7 @@ namespace BlogApp
                                 AuthorId = Convert.ToInt32( reader[ "AuthorId" ] ),
                                 CreationDateTime = Convert.ToDateTime( reader[ "CreationDateTime" ] ),
                             };
-                            posts.Add( rawReservation );
+                            posts.Add( post );
                         }
                     }
                 }
