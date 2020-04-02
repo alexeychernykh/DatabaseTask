@@ -1,0 +1,12 @@
+/*.suo
+/*.user
+bin/
+obj/
+pkg/
+/.git
+/.vs
+/.idea
+/packages
+*.user
+NugetPackage
+*.coverage
