@@ -1,4 +1,4 @@
-1. Создание таблицы Author, Post
+1. РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ Author, Post
 CREATE TABLE [dbo].[Author] (
 	[AuthorId] [int] IDENTITY(1,1) NOT NULL CONSTRAINT PK_Author PRIMARY KEY,
 	[FirstName] [nvarchar](256) NULL,
@@ -34,6 +34,6 @@ WHERE Title = 'SQL Introduction'
 
 4. 
 DELETE FROM [Author]
---получилось что остались посты, но авторов нет!
+--РїРѕР»СѓС‡РёР»РѕСЃСЊ С‡С‚Рѕ РѕСЃС‚Р°Р»РёСЃСЊ РїРѕСЃС‚С‹, РЅРѕ Р°РІС‚РѕСЂРѕРІ РЅРµС‚!
 
 
